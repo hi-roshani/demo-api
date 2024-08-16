@@ -1,0 +1,43 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Deluxe Room Pricing"
+    },
+    "body": {
+      "text": "Check out the current pricing for our deluxe rooms below."
+    },
+    "footer": {
+      "text": "Choose an option below for more details or booking."
+    },
+    "action": {
+      "button": "View Pricing",
+      "sections": [
+        {
+          "title": "Deluxe Room Pricing",
+          "rows": [
+            {
+              "id": "standard_rate",
+              "title": "Standard Rate",
+              "description": "Standard rate: $200 per night"
+            },
+            {
+              "id": "seasonal_offer",
+              "title": "Seasonal Offer",
+              "description": "Special offer: $180 per night (Valid from August to October)"
+            },
+            {
+              "id": "extended_stay",
+              "title": "Extended Stay Rate",
+              "description": "Discounted rate for extended stays: $170 per night (for stays of 7 nights or more)"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

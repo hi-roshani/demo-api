@@ -1,0 +1,53 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "919049534396",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Spa Details"
+    },
+    "body": {
+      "text": "Discover our spa services:"
+    },
+    "footer": {
+      "text": "Choose an option or go back."
+    },
+    "action": {
+      "button": "Explore Spa",
+      "sections": [
+        {
+          "title": "Spa Experience",
+          "rows": [
+            {
+              "id": "spa_services",
+              "title": "Spa Services",
+              "description": "Learn about the various treatments and services we offer."
+            },
+            {
+              "id": "wellness_packages",
+              "title": "Wellness Packages",
+              "description": "Explore our wellness and spa packages."
+            },
+            {
+              "id": "spiritual_sessions",
+              "title": "Spiritual Sessions",
+              "description": "Check out our spiritual and relaxation sessions."
+            },
+            {
+              "id": "spa_feedback",
+              "title": "Spa Feedback",
+              "description": "Read feedback from guests who have visited our spa."
+            },
+            {
+              "id": "go_back",
+              "title": "Go Back",
+              "description": "Return to the main menu."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

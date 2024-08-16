@@ -1,0 +1,43 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "carousel",
+    "header": {
+      "type": "text",
+      "text": "Suite Guest Experiences"
+    },
+    "body": {
+      "text": "Check out what our guests have to say about their stay in our luxurious suites."
+    },
+    "footer": {
+      "text": "Experience our suites for yourself!"
+    },
+    "action": {
+      "button": "View Reviews",
+      "sections": [
+        {
+          "title": "Guest Reviews",
+          "items": [
+            {
+              "title": "Amazing Experience!",
+              "description": "“The suite was fantastic! The private check-in and personal chef made our stay truly memorable. Highly recommend!”",
+              "image_url": "IMAGE_URL_1"
+            },
+            {
+              "title": "Unforgettable Stay",
+              "description": "“Exceptional service and luxurious amenities. The in-suite spa was a highlight of our trip.”",
+              "image_url": "IMAGE_URL_2"
+            },
+            {
+              "title": "Perfect for Special Occasions",
+              "description": "“We celebrated our anniversary here and it was perfect. The private events service was outstanding.”",
+              "image_url": "IMAGE_URL_3"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

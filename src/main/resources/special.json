@@ -1,0 +1,53 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "919049534396",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Special Packages Details"
+    },
+    "body": {
+      "text": "Explore our exclusive packages and deals:"
+    },
+    "footer": {
+      "text": "Choose an option or go back."
+    },
+    "action": {
+      "button": "Explore Packages",
+      "sections": [
+        {
+          "title": "Package Options",
+          "rows": [
+            {
+              "id": "special_package_highlights",
+              "title": "Package Highlights",
+              "description": "Learn about the highlights of our special packages."
+            },
+            {
+              "id": "special_seasonal_deals",
+              "title": "Seasonal Deals",
+              "description": "Check out any seasonal deals or promotions."
+            },
+            {
+              "id": "special_add_on_services",
+              "title": "Add-On Services",
+              "description": "See additional services you can include with your package."
+            },
+            {
+              "id": "special_package_reviews",
+              "title": "Package Reviews",
+              "description": "Read reviews from guests who have enjoyed our packages."
+            },
+            {
+              "id": "go_back",
+              "title": "Go Back",
+              "description": "Return to the main menu."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

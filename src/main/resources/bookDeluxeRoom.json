@@ -1,0 +1,48 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Book a Deluxe Room"
+    },
+    "body": {
+      "text": "Choose an option below to proceed with booking your deluxe room."
+    },
+    "footer": {
+      "text": "We look forward to making your stay exceptional!"
+    },
+    "action": {
+      "button": "Book Now",
+      "sections": [
+        {
+          "title": "Booking Options",
+          "rows": [
+            {
+              "id": "book_now",
+              "title": "Book Now",
+              "description": "Proceed to book a deluxe room."
+            },
+            {
+              "id": "check_availability",
+              "title": "Check Availability",
+              "description": "Check room availability for your desired dates."
+            },
+            {
+              "id": "request_callback",
+              "title": "Request Callback",
+              "description": "Request a callback from our reservation team."
+            },
+            {
+              "id": "more_info",
+              "title": "More Information",
+              "description": "Get more information about our deluxe rooms."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

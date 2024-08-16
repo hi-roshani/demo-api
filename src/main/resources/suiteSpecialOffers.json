@@ -1,0 +1,43 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Suite Special Offers"
+    },
+    "body": {
+      "text": "Explore our current special offers for suite rooms and enjoy exclusive benefits."
+    },
+    "footer": {
+      "text": "Don't miss out on these limited-time offers!"
+    },
+    "action": {
+      "button": "View Offers",
+      "sections": [
+        {
+          "title": "Current Special Offers",
+          "rows": [
+            {
+              "id": "summer_special",
+              "title": "Summer Special",
+              "description": "Book now and get 20% off on suite rooms for stays between June and August."
+            },
+            {
+              "id": "extended_stay_discount",
+              "title": "Extended Stay Discount",
+              "description": "Enjoy a 15% discount on suite rooms for stays of 5 nights or more."
+            },
+            {
+              "id": "last_minute_offer",
+              "title": "Last Minute Offer",
+              "description": "Get 25% off on suite bookings made within 7 days of check-in."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

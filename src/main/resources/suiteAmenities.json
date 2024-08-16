@@ -1,0 +1,43 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Suite Amenities"
+    },
+    "body": {
+      "text": "Discover the amenities available in our suites."
+    },
+    "footer": {
+      "text": "Select an option below to view amenities."
+    },
+    "action": {
+      "button": "See Amenities",
+      "sections": [
+        {
+          "title": "Suite Amenities",
+          "rows": [
+            {
+              "id": "suite_amenities",
+              "title": "Full Kitchen",
+              "description": "Enjoy a full kitchen with premium appliances."
+            },
+            {
+              "id": "suite_amenities",
+              "title": "Jacuzzi",
+              "description": "Relax in your own private Jacuzzi."
+            },
+            {
+              "id": "suite_amenities",
+              "title": "Living Area",
+              "description": "Spacious living area for comfort and relaxation."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

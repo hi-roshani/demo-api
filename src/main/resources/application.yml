@@ -1,0 +1,17 @@
+logging:
+  level:
+    root: INFO
+    com.example.send_hii: DEBUG
+
+spring:
+  application:
+    name: whatsapp-integration
+
+whatsapp:
+  mode: subscribe
+  verification_token: kartikaryan
+  api:
+    url: https://graph.facebook.com/v20.0/317367008136487/messages
+    token: EAAXdPN7JNQgBO2uSg32odJ1OHrVaKwOZATzwPmmRYHKupG8b8GXt3QwU7BZAlE8JYqbNrbs0VXb73DBhryTk7JMBOEdC3UPSgyLB7Njm5ZA7ZAlZCvrGf8BaYoSkIZAN9IZAZC834exCZBZADpxsZATRHc0FC6bRFjGed5YMhCX6AMWy1ZBwnkLlUMBIVV4aNThVAV8wgDal30Aj5QUZA4LwReIWwfu11nPlAUrFRuZCsZD
+server:
+  port: 9001

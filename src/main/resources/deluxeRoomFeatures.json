@@ -1,0 +1,43 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Deluxe Room Features"
+    },
+    "body": {
+      "text": "Discover the premium features of our deluxe rooms."
+    },
+    "footer": {
+      "text": "Choose an option below to view detailed features."
+    },
+    "action": {
+      "button": "See Features",
+      "sections": [
+        {
+          "title": "Deluxe Room Features",
+          "rows": [
+            {
+              "id": "room_features",
+              "title": "Luxury Bedding",
+              "description": "Experience comfort with our luxury bedding."
+            },
+            {
+              "id": "room_features",
+              "title": "Ocean View",
+              "description": "Enjoy stunning ocean views from your room."
+            },
+            {
+              "id": "room_features",
+              "title": "Private Balcony",
+              "description": "Relax on your private balcony."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

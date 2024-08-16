@@ -1,0 +1,53 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "919049534396",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Swimming Pool Details"
+    },
+    "body": {
+      "text": "Get information about our swimming pool amenities:"
+    },
+    "footer": {
+      "text": "Choose an option or go back."
+    },
+    "action": {
+      "button": "Explore Pool",
+      "sections": [
+        {
+          "title": "Pool Experience",
+          "rows": [
+            {
+              "id": "pool_features",
+              "title": "Pool Features",
+              "description": "Learn about the features of our swimming pool."
+            },
+            {
+              "id": "pool_events",
+              "title": "Pool Events",
+              "description": "Find out about events or activities at the pool."
+            },
+            {
+              "id": "guest_feedback",
+              "title": "Guest Feedback",
+              "description": "Read feedback from guests who enjoyed the pool."
+            },
+            {
+              "id": "pool_extras",
+              "title": "Extra Amenities",
+              "description": "Explore additional amenities available at the pool."
+            },
+            {
+              "id": "go_back",
+              "title": "Go Back",
+              "description": "Return to the main menu."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

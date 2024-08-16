@@ -1,0 +1,48 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "919049534396",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Deluxe Rooms Details"
+    },
+    "body": {
+      "text": "Here are more details about our Deluxe Rooms:"
+    },
+    "footer": {
+      "text": "Choose an option or go back."
+    },
+    "action": {
+      "button": "More Details",
+      "sections": [
+        {
+          "title": "Room Features",
+          "rows": [
+            {
+              "id": "room_features",
+              "title": "Room Features",
+              "description": "Learn more about the features of our deluxe rooms."
+            },
+            {
+              "id": "pricing",
+              "title": "Pricing",
+              "description": "Check the pricing for our deluxe rooms."
+            },
+            {
+              "id": "book_now",
+              "title": "Book Now",
+              "description": "Book a deluxe room."
+            },
+            {
+              "id": "go_back",
+              "title": "Go Back",
+              "description": "Return to the main menu."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

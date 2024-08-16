@@ -1,0 +1,48 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Standard Room Features"
+    },
+    "body": {
+      "text": "Explore the features of our standard rooms."
+    },
+    "footer": {
+      "text": "Choose an option below for more details."
+    },
+    "action": {
+      "button": "See Features",
+      "sections": [
+        {
+          "title": "Standard Room Features",
+          "rows": [
+            {
+              "id": "standard_room_features",
+              "title": "Comfortable Bedding",
+              "description": "Relax with our comfortable bedding."
+            },
+            {
+              "id": "standard_room_features",
+              "title": "High-Speed Wi-Fi",
+              "description": "Stay connected with high-speed internet."
+            },
+            {
+              "id": "mini_fridge",
+              "title": "Mini Fridge",
+              "description": "Keep your beverages and snacks fresh with a mini fridge in your room."
+            },
+            {
+              "id": "mini_fridge",
+              "title": "Mini Fridge",
+              "description": "Keep your beverages and snacks fresh with a mini fridge in your room."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

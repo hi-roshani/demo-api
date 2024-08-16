@@ -1,0 +1,53 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "919049534396",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Fitness Center Details"
+    },
+    "body": {
+      "text": "Explore our fitness center amenities and offerings:"
+    },
+    "footer": {
+      "text": "Choose an option or go back."
+    },
+    "action": {
+      "button": "Explore Fitness",
+      "sections": [
+        {
+          "title": "Fitness Experience",
+          "rows": [
+            {
+              "id": "fitness_equipment",
+              "title": "Fitness Equipment",
+              "description": "Learn about the equipment available in our fitness center."
+            },
+            {
+              "id": "class_schedule",
+              "title": "Class Schedule",
+              "description": "Check the schedule for fitness classes and sessions."
+            },
+            {
+              "id": "personal_training",
+              "title": "Personal Training",
+              "description": "Find out about personal training options."
+            },
+            {
+              "id": "fitness_tips",
+              "title": "Fitness Tips",
+              "description": "Get fitness tips and advice from our trainers."
+            },
+            {
+              "id": "go_back",
+              "title": "Go Back",
+              "description": "Return to the main menu."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

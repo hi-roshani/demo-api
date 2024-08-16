@@ -1,0 +1,58 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "PHONE_NUMBER",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Suite Personalized Services"
+    },
+    "body": {
+      "text": "Discover the personalized services that come with our suite rooms to enhance your stay."
+    },
+    "footer": {
+      "text": "Experience luxury and comfort with our exclusive suite services!"
+    },
+    "action": {
+      "button": "Explore Services",
+      "sections": [
+        {
+          "title": "Personalized Suite Services",
+          "rows": [
+            {
+              "id": "private_check_in",
+              "title": "Private Check-In",
+              "description": "Enjoy a smooth and private check-in experience directly in your suite."
+            },
+            {
+              "id": "24_7_concierge",
+              "title": "24/7 Concierge Service",
+              "description": "Access our concierge service anytime for assistance with reservations, recommendations, and more."
+            },
+            {
+              "id": "personal_chef",
+              "title": "Personal Chef",
+              "description": "Indulge in gourmet meals prepared by a personal chef, tailored to your preferences."
+            },
+            {
+              "id": "spa_services",
+              "title": "In-Suite Spa Services",
+              "description": "Relax with spa treatments available in the comfort of your suite, including massages and facials."
+            },
+            {
+              "id": "custom_amenities",
+              "title": "Custom Amenities",
+              "description": "Request custom amenities such as premium toiletries, pillow menus, and more to suit your preferences."
+            },
+            {
+              "id": "private_events",
+              "title": "Private Events",
+              "description": "Host gatherings or events in your suite with tailored arrangements and services."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "919049534396",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Welcome to Hotel Nisarga!"
+    },
+    "body": {
+      "text": "Please choose from the options below to explore our offerings:"
+    },
+    "footer": {
+      "text": "We look forward to making your stay exceptional!"
+    },
+    "action": {
+      "button": "Explore Services",
+      "sections": [
+        {
+          "title":  "Room Options",
+          "rows": [
+            {
+              "id": "deluxe_rooms",
+              "title": "Deluxe Rooms",
+              "description": "Experience luxury with our deluxe rooms."
+            },
+            {
+              "id": "suite_rooms",
+              "title": "Suite Rooms",
+              "description": "Enjoy extra space and premium amenities."
+            },
+            {
+              "id": "standard_rooms",
+              "title": "Standard Rooms",
+              "description": "Comfortable and well-equipped for your stay."
+            },
+            {
+              "id": "special_packages",
+              "title": "Special Packages",
+              "description": "Check out our exclusive packages and deals."
+            }
+          ]
+        },
+        {
+          "title": "Hotel Amenities",
+          "rows": [
+            {
+              "id": "pool",
+              "title": "Swimming Pool",
+              "description": "Relax and unwind at our beautiful pool."
+            },
+            {
+              "id": "spa",
+              "title": "Spa",
+              "description": "Pamper yourself with our spa treatments."
+            },
+            {
+              "id": "gym",
+              "title": "Fitness Center",
+              "description": "Stay active in our well-equipped gym."
+            }
+          ]
+        },
+        {
+          "title": "Additional Services",
+          "rows": [
+            {
+              "id": "room_service",
+              "title": "Room Service",
+              "description": "Enjoy dining in the comfort of your room."
+            },
+            {
+              "id": "housekeeping",
+              "title": "Housekeeping",
+              "description": "Request additional housekeeping services."
+            },
+            {
+              "id": "guest_assistance",
+              "title": "Guest Assistance",
+              "description": "Get assistance with reservations and local information."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
