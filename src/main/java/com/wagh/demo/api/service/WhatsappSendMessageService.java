@@ -41,11 +41,11 @@ public class WhatsappSendMessageService {
         sendMessageFromFile("deluxe.json");
     }
 
-    public void sendDeluxeRoomFeatures(String messageJson) { sendMessageFromFile(" ");}
+    public void sendDeluxeRoomFeatures(String messageJson) { sendMessageFromFile("deluxeRoomFeatures.json");}
 
-    public void sendDeluxeRoomPricing(String messageJson) { sendMessageFromFile("");}
+    public void sendDeluxeRoomPricing(String messageJson) { sendMessageFromFile("deluxeRoomPricing.json");}
 
-    public void sendBookDeluxeRoom(String messageJson) { sendMessageFromFile("");}
+    public void sendBookDeluxeRoom(String messageJson) { sendMessageFromFile("bookDeluxeRoom.json");}
 
 
 
@@ -53,21 +53,21 @@ public class WhatsappSendMessageService {
         sendMessageFromFile("suite.json");
     }
 
-    public void sendSuiteAmenities(String messageJson) { sendMessageFromFile("");}
+    public void sendSuiteAmenities(String messageJson) { sendMessageFromFile("suiteAmenities.json");}
 
-    public void sendSuiteSpecialOffers(String messageJson) { sendMessageFromFile("");}
+    public void sendSuiteSpecialOffers(String messageJson) { sendMessageFromFile("suiteSpecialOffers.json");}
 
-    public void sendSuitePersonalizedServices(String messageJson) { sendMessageFromFile("");}
+    public void sendSuitePersonalizedServices(String messageJson) { sendMessageFromFile("suitePersonalizedServices.json");}
 
-    public void sendSuiteGuestExperiences(String messageJson) { sendMessageFromFile("");}
+    public void sendSuiteGuestExperiences(String messageJson) { sendMessageFromFile("suiteGuestExperiences.json");}
 
 
 
     public void sendStandardRoomsDetails(String messageJson) { sendMessageFromFile("standard.json");}
 
-    public void sendStandardRoomFeatures(String messageJson) { sendMessageFromFile("");}
+    public void sendStandardRoomFeatures(String messageJson) { sendMessageFromFile("standardRoomFeatures.json");}
 
-    public void sendStandardRoomAmenityList(String messageJson) { sendMessageFromFile("");}
+    public void sendStandardRoomAmenityList(String messageJson) { sendMessageFromFile(".json");}
 
     public void sendStandardRoomCustomisation(String messageJson) { sendMessageFromFile("");}
 
@@ -140,12 +140,11 @@ public class WhatsappSendMessageService {
         try {
             log.info("Sending request to API URL: {}", apiUrl);
             log.info("Request Headers: {}", headers);
-            log.info("Request Body: {}", messageJson);
 
             ResponseEntity<String> responseEntity = restTemplate.exchange(apiUrl, HttpMethod.POST, request, String.class);
 
             if (responseEntity.getStatusCode() == HttpStatus.OK) {
-                log.info("Message sent successfully: {}", responseEntity.getBody());
+                log.info("MessageTable sent successfully: {}", responseEntity.getBody());
             } else {
                 log.error("Failed to send message, status code: {}", responseEntity.getStatusCodeValue());
                 log.error("Response body: {}", responseEntity.getBody());
@@ -181,7 +180,7 @@ public class WhatsappSendMessageService {
     private void sendMessageFromFile(String fileName) {
         String messageJson = readMessageFromFile(fileName);
         if (messageJson != null) {
-            log.debug("Message JSON read from file: {}", messageJson);
+            log.debug("MessageTable JSON read from file: {}", messageJson);
             log.debug("calling sendMessage method");
             sendMessage(messageJson); // Ensure the actual content is passed
         } else {

@@ -21,17 +21,17 @@
           "title": "Room Features",
           "rows": [
             {
-              "id": "room_features",
+              "id": "deluxe_room_features",
               "title": "Room Features",
               "description": "Learn more about the features of our deluxe rooms."
             },
             {
-              "id": "pricing",
+              "id": "deluxe_pricing",
               "title": "Pricing",
               "description": "Check the pricing for our deluxe rooms."
             },
             {
-              "id": "book_now",
+              "id": "deluxe_book_now",
               "title": "Book Now",
               "description": "Book a deluxe room."
             },

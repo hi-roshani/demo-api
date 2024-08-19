@@ -19,7 +19,7 @@ public class WhatsappWebhookService {
         log.info("Received message JSON: {}", messageJson);
 
         String messageType = extractMessageType(messageJson);
-        log.info("Message type identified: {}", messageType);
+        log.info("MessageTable type identified: {}", messageType);
 
         switch (messageType) {
             case "interactive_response":
@@ -56,7 +56,7 @@ public class WhatsappWebhookService {
             }
         }
 
-        return "Message received successfully";
+        return "MessageTable received successfully";
     }
 
     private String extractMessageType(String json) {
@@ -114,6 +114,44 @@ public class WhatsappWebhookService {
         return null;
     }
 
+
+    private void handleInitialOptions(String messageJson, String selectedOption) {
+        switch (selectedOption) {
+            case "l1":
+                whatsappSendMessageService.sendDeluxeRoomsDetails(messageJson);
+                break;
+            case "l2":
+                whatsappSendMessageService.sendSuiteRoomsDetails(messageJson);
+                break;
+            case "l3":
+                whatsappSendMessageService.sendStandardRoomsDetails(messageJson);
+                break;
+            case "l4":
+                whatsappSendMessageService.sendSpecialPackagesDetails(messageJson);
+                break;
+            case "l5":
+                whatsappSendMessageService.sendSwimmingPoolDetails(messageJson);
+                break;
+            case "l6":
+                whatsappSendMessageService.sendSpaDetails(messageJson);
+                break;
+            case "l7":
+                whatsappSendMessageService.sendGymDetails(messageJson);
+                break;
+            case "l8":
+                whatsappSendMessageService.sendRoomServiceDetails(messageJson);
+                break;
+            case "l9":
+                whatsappSendMessageService.sendHouseKeepingDetails(messageJson);
+                break;
+            case "l0":
+                whatsappSendMessageService.sendGuestAssistanceDetails(messageJson);
+                break;
+            default:
+                log.warn("Unknown initial option selected: {}", selectedOption);
+        }
+    }
+
     private void handleInteractiveResponse(String messageJson, String selectedOption) {
         log.info("Handling interactive response for option: {}", selectedOption);
 
@@ -136,42 +174,6 @@ public class WhatsappWebhookService {
         whatsappSendMessageService.sendMainMenu(messageJson);
     }
 
-    private void handleInitialOptions(String messageJson, String selectedOption) {
-        switch (selectedOption) {
-            case "deluxe_rooms":
-                whatsappSendMessageService.sendDeluxeRoomsDetails(messageJson);
-                break;
-            case "suite_rooms":
-                whatsappSendMessageService.sendSuiteRoomsDetails(messageJson);
-                break;
-            case "standard_rooms":
-                whatsappSendMessageService.sendStandardRoomsDetails(messageJson);
-                break;
-            case "special_packages":
-                whatsappSendMessageService.sendSpecialPackagesDetails(messageJson);
-                break;
-            case "pool":
-                whatsappSendMessageService.sendSwimmingPoolDetails(messageJson);
-                break;
-            case "spa":
-                whatsappSendMessageService.sendSpaDetails(messageJson);
-                break;
-            case "gym":
-                whatsappSendMessageService.sendGymDetails(messageJson);
-                break;
-            case "room_service":
-                whatsappSendMessageService.sendRoomServiceDetails(messageJson);
-                break;
-            case "housekeeping":
-                whatsappSendMessageService.sendHouseKeepingDetails(messageJson);
-                break;
-            case "guest_assistance":
-                whatsappSendMessageService.sendGuestAssistanceDetails(messageJson);
-                break;
-            default:
-                log.warn("Unknown initial option selected: {}", selectedOption);
-        }
-    }
 
     private void handleDeluxeRoomFollowUps(String messageJson, String selectedOption) {
         switch (selectedOption) {
@@ -315,7 +317,7 @@ public class WhatsappWebhookService {
         } catch (Exception e) {
             log.error("Error extracting message text from JSON", e);
         }
-        return "Message text not found";
+        return "MessageTable text not found";
     }
 
     private String extractPhoneNumber(String json) {

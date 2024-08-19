@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1")
-
 public class WhatsappController
 {
 
@@ -43,6 +42,7 @@ public class WhatsappController
             return ResponseEntity.status(403).body("Verification token or mode mismatch");
         }
     }
+
     @PostMapping("/webhook")
     public ResponseEntity<String> receiveMessage(@RequestBody String messageJson) {
         String response = whatsappWebhookService.processWebhookMessage(messageJson);

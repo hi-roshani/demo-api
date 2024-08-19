@@ -1,6 +1,6 @@
 {
   "messaging_product": "whatsapp",
-  "to": "PHONE_NUMBER",
+  "to": "919049534396",
   "type": "interactive",
   "interactive": {
     "type": "list",
@@ -33,7 +33,7 @@
             {
               "id": "extended_stay",
               "title": "Extended Stay Rate",
-              "description": "Discounted rate for extended stays: $170 per night (for stays of 7 nights or more)"
+              "description": "Discounted rate for extended stays: $170 per night "
             }
           ]
         }

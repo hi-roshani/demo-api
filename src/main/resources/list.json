@@ -21,22 +21,22 @@
           "title":  "Room Options",
           "rows": [
             {
-              "id": "deluxe_rooms",
+              "id": "l1",
               "title": "Deluxe Rooms",
               "description": "Experience luxury with our deluxe rooms."
             },
             {
-              "id": "suite_rooms",
+              "id": "l2",
               "title": "Suite Rooms",
               "description": "Enjoy extra space and premium amenities."
             },
             {
-              "id": "standard_rooms",
+              "id": "l3",
               "title": "Standard Rooms",
               "description": "Comfortable and well-equipped for your stay."
             },
             {
-              "id": "special_packages",
+              "id": "l4",
               "title": "Special Packages",
               "description": "Check out our exclusive packages and deals."
             }
@@ -46,17 +46,17 @@
           "title": "Hotel Amenities",
           "rows": [
             {
-              "id": "pool",
+              "id": "l5",
               "title": "Swimming Pool",
               "description": "Relax and unwind at our beautiful pool."
             },
             {
-              "id": "spa",
+              "id": "l6",
               "title": "Spa",
               "description": "Pamper yourself with our spa treatments."
             },
             {
-              "id": "gym",
+              "id": "l7",
               "title": "Fitness Center",
               "description": "Stay active in our well-equipped gym."
             }
@@ -66,17 +66,17 @@
           "title": "Additional Services",
           "rows": [
             {
-              "id": "room_service",
+              "id": "l8",
               "title": "Room Service",
               "description": "Enjoy dining in the comfort of your room."
             },
             {
-              "id": "housekeeping",
+              "id": "l9",
               "title": "Housekeeping",
               "description": "Request additional housekeeping services."
             },
             {
-              "id": "guest_assistance",
+              "id": "l0",
               "title": "Guest Assistance",
               "description": "Get assistance with reservations and local information."
             }

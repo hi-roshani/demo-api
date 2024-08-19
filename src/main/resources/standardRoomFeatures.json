@@ -1,6 +1,6 @@
 {
   "messaging_product": "whatsapp",
-  "to": "PHONE_NUMBER",
+  "to": "919049534396",
   "type": "interactive",
   "interactive": {
     "type": "list",
@@ -29,11 +29,6 @@
               "id": "standard_room_features",
               "title": "High-Speed Wi-Fi",
               "description": "Stay connected with high-speed internet."
-            },
-            {
-              "id": "mini_fridge",
-              "title": "Mini Fridge",
-              "description": "Keep your beverages and snacks fresh with a mini fridge in your room."
             },
             {
               "id": "mini_fridge",

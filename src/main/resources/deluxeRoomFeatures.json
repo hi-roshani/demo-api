@@ -1,6 +1,6 @@
 {
   "messaging_product": "whatsapp",
-  "to": "PHONE_NUMBER",
+  "to": "919049534396",
   "type": "interactive",
   "interactive": {
     "type": "list",
@@ -21,17 +21,17 @@
           "title": "Deluxe Room Features",
           "rows": [
             {
-              "id": "room_features",
+              "id": "room_features1",
               "title": "Luxury Bedding",
               "description": "Experience comfort with our luxury bedding."
             },
             {
-              "id": "room_features",
+              "id": "room_features2",
               "title": "Ocean View",
               "description": "Enjoy stunning ocean views from your room."
             },
             {
-              "id": "room_features",
+              "id": "room_features3",
               "title": "Private Balcony",
               "description": "Relax on your private balcony."
             }
