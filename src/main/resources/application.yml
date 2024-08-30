@@ -1,17 +1,42 @@
-logging:
-  level:
-    root: INFO
-    com.example.send_hii: DEBUG
-
 spring:
-  application:
-    name: whatsapp-integration
-
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/whatsapp?currentSchema=user
+    username: postgres
+    password: root
+    hikari:
+      data-source-properties:
+        stringtype: unspecified
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        maintainTimeStats: false
+        maximum-pool-size: 5
+        connection-timeout: 5000
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.ddl-auto: none
+    show-sql: false
+    open-in-view: false
+    generate-ddl: false
 whatsapp:
   mode: subscribe
   verification_token: kartikaryan
   api:
     url: https://graph.facebook.com/v20.0/317367008136487/messages
-    token: EAAXdPN7JNQgBO747e7hhPBUyia9JxwpSa5HsWWYCcvOVAftraPJswho2yPWfXWzjJi95ZCcdoVZCvZAjQOHkqX1HrpoZBxtcfK5k0cLNIuddXj2U4ttzyI38ZCtAEjvSrPek8Ahk82QLqPcAx5q8cqlAHerzMsA2hR8VThXb0tdU52Y6gG5OsDrZCkKZCG2g4YSoA5sVBE6YzBZAWx5rW5ZCgZBAFmhSraqC6Eo9IZD
+    token: EAAXdPN7JNQgBOzvh0SJYaTIbfy2M2Tm3jm44uaQE6qxw3ePxKLVAxWYKzT2WUGDO1jEBZBtYN0IvdyJxyhlZC4eRrZCwcCeMN7qdf5dUCJ9PUZBwKeZCawaGY8UZBmpBgDCyKglbFRGj1DxRQwmqBYZA62hZAKqYbxD6OOR3wlK0I0DjUMLuMZAkh4soNz5wAnkmgZBWrXA19pnuuPEE39RgAkMXvJ2IZB1KLlEAtkZD
 server:
   port: 9001
