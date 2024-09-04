@@ -1,6 +1,6 @@
 package com.wagh.demo.api.control;
 
-import com.wagh.demo.api.model.User;
+import com.wagh.demo.api.dto.webhook.UserDTO;
 import com.wagh.demo.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,13 +18,14 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/users")
-    public List<User> listUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<UserDTO>> listUsers() {
+        List<UserDTO> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/users/search")
     public ResponseEntity<?> searchUsers(@RequestParam String query) {
-        List<User> users = userService.searchUsers(query);
+        List<UserDTO> users = userService.searchUsers(query);
         if (users.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Name not found");
         } else {

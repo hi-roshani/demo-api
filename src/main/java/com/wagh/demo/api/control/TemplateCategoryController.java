@@ -1,7 +1,7 @@
 package com.wagh.demo.api.control;
 
-import com.wagh.demo.api.model.Category;
-import com.wagh.demo.api.model.TemplateCategory;
+
+import com.wagh.demo.api.dto.webhook.TemplateCategoryDTO;
 import com.wagh.demo.api.service.TemplateCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,27 +18,27 @@ public class TemplateCategoryController {
     private TemplateCategoryService templateCategoryService;
 
     @GetMapping
-    public ResponseEntity<List<TemplateCategory>> getAllCategories() {
-        List<TemplateCategory> templateCategories = templateCategoryService.findAllCategories();
+    public ResponseEntity<List<TemplateCategoryDTO>> getAllCategories() {
+        List<TemplateCategoryDTO> templateCategories = templateCategoryService.findAllCategories();
         return ResponseEntity.ok(templateCategories);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TemplateCategory> getCategoryById(@PathVariable Long id) {
-        Optional<TemplateCategory> templateCategory = templateCategoryService.findCategoryById(id);
+    public ResponseEntity<TemplateCategoryDTO> getCategoryById(@PathVariable Long id) {
+        Optional<TemplateCategoryDTO> templateCategory = templateCategoryService.findCategoryById(id);
         return templateCategory.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<TemplateCategory> createCategory(@RequestBody TemplateCategory templateCategory) {
-        TemplateCategory createdCategory = templateCategoryService.addCategory(templateCategory);
+    public ResponseEntity<TemplateCategoryDTO> createCategory(@RequestBody TemplateCategoryDTO templateCategoryDTO) {
+        TemplateCategoryDTO createdCategory = templateCategoryService.addCategory(templateCategoryDTO);
         return ResponseEntity.ok(createdCategory);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TemplateCategory> updateCategory(@PathVariable Long id, @RequestBody TemplateCategory templateCategory) {
-        TemplateCategory updatedCategory = templateCategoryService.updateCategory(id, templateCategory);
+    public ResponseEntity<TemplateCategoryDTO> updateCategory(@PathVariable Long id, @RequestBody TemplateCategoryDTO templateCategoryDTO) {
+        TemplateCategoryDTO updatedCategory = templateCategoryService.updateCategory(id, templateCategoryDTO);
         return updatedCategory != null ? ResponseEntity.ok(updatedCategory)
                 : ResponseEntity.notFound().build();
     }

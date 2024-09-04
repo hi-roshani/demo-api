@@ -10,12 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@Slf4j
+/*@Slf4j
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1")*/
 public class WhatsappController
 {
-
+/*
     @Value("${whatsapp.mode}")
     private String whatsappMode;
 
@@ -47,5 +47,5 @@ public class WhatsappController
     public ResponseEntity<String> receiveMessage(@RequestBody String messageJson) {
         String response = whatsappWebhookService.processWebhookMessage(messageJson);
         return ResponseEntity.ok(response);
-    }
+    }*/
 }

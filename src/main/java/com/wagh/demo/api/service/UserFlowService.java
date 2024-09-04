@@ -1,4 +1,5 @@
 package com.wagh.demo.api.service;
+
 import com.wagh.demo.api.model.UserFlow;
 import com.wagh.demo.api.repo.UserFlowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ public class UserFlowService {
     private UserFlowRepository userFlowRepository;
 
     public UserFlow createUserFlow(UserFlow userFlow) {
-        // Convert list to comma-separated string
         userFlow.setListItemsFromArray(userFlow.getListItemsAsArray());
         return userFlowRepository.save(userFlow);
     }
