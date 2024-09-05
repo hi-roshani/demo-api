@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter     @Setter     @Data
-public class TextDTO {
-    private String body;
+public class ContextDTO {
+    private String from;
+    private String id;
 }

@@ -20,30 +20,9 @@ public class MessageRequestController {
     }
 
     @PostMapping("/send")
-    public void sendMessage(@RequestBody SendMessageRequest sendMessageRequest) {
+    public void sendMessage(@RequestBody SendMessageRequest sendMessageRequest) throws Exception {
         // Call the service method with the templateId
         whatsappRequestService.sendMessage(sendMessageRequest.getId());
     }
 }
-/*
-@RestController
-@RequestMapping("/api/messages")
-public class MessageRequestController {
 
-    private final WhatsappRequestService whatsAppRequestService;
-    private final MessageTemplateRepository messageTemplateRepository;
-
-    @Autowired
-    public MessageRequestController(WhatsappRequestService whatsAppRequestService, MessageTemplateRepository messageTemplateRepository) {
-        this.whatsAppRequestService = whatsAppRequestService;
-        this.messageTemplateRepository = messageTemplateRepository;
-    }
-
-    @PostMapping("/send")
-    public void sendMessage(@RequestBody MessageTemplateDTO messageTemplateDTO) {
-        MessageTemplate template = messageTemplateRepository.findById(messageTemplateDTO.getId())
-                .orElseThrow(() -> new RuntimeException("Template not found"));
-        whatsAppRequestService.sendMessage("+919049534396", template.getTemplateBody());
-    }
-}
-*/

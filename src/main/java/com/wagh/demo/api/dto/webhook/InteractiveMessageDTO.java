@@ -6,4 +6,5 @@ import lombok.Setter;
 @Getter     @Setter
 public class InteractiveMessageDTO {
     private String type;
+    private ButtonReplyDTO button_reply;
 }

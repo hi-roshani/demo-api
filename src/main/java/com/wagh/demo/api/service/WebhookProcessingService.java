@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wagh.demo.api.dto.webhook.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
 import java.util.List;
 
 @Slf4j
@@ -13,12 +11,16 @@ import java.util.List;
 public class WebhookProcessingService {
 
     private final WhatsappRequestService whatsappRequestService;
+    private final ObjectMapper objectMapper;
 
-    public WebhookProcessingService(WhatsappRequestService whatsappRequestService) {
+
+    public WebhookProcessingService(WhatsappRequestService whatsappRequestService, ObjectMapper objectMapper) {
         this.whatsappRequestService = whatsappRequestService;
+        this.objectMapper = objectMapper;
     }
 
-    public void processWebhookResponse(String responseJson) throws IOException {
+
+    public void processWebhookResponse(String responseJson) throws Exception {
         log.info("Received Webhook Response: {}", responseJson);
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -29,7 +31,7 @@ public class WebhookProcessingService {
         processEntryDTOs(webhookResponseDTO.getEntry());
     }
 
-    private void processEntryDTOs(List<EntryDTO> entryDTOList) throws IOException {
+    private void processEntryDTOs(List<EntryDTO> entryDTOList) throws Exception {
         if (entryDTOList.isEmpty()) {
             log.info("No entries to process.");
             return;
@@ -54,7 +56,7 @@ public class WebhookProcessingService {
         return hasStatuses;
     }
 
-    private void processMessage(EntryDTO entryDTO) throws IOException {
+    private void processMessage(EntryDTO entryDTO) throws Exception {
         if (entryDTO.getChanges().isEmpty()) {
             log.info("No changes in entry.");
             return;
@@ -69,7 +71,7 @@ public class WebhookProcessingService {
             log.info("Text message received");
             sendMessageBasedOnUserInfo(entryDTO);
         } else if (msgType.equals("interactive")) {
-            InteractiveMessageDTO interactiveMessageDTO = entryDTO.getChanges().get(0).getValue().getMessages().get(0).getInteractiveMessage();
+            InteractiveMessageDTO interactiveMessageDTO = entryDTO.getChanges().get(0).getValue().getMessages().get(0).getInteractive();
             if (interactiveMessageDTO.getType().equals("list_reply")) {
                 log.info("List reply received");
                 // Handle list reply
@@ -80,7 +82,7 @@ public class WebhookProcessingService {
         }
     }
 
-    private void sendMessageBasedOnUserInfo(EntryDTO entryDTO) {
+    private void sendMessageBasedOnUserInfo(EntryDTO entryDTO) throws Exception {
         // Extract relevant user information from entryDTO
         // Determine which template to use, for example based on user info or message content
         Long templateId = determineTemplateId(entryDTO);

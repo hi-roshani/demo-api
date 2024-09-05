@@ -20,7 +20,7 @@ public class MessageWebhookController {
     public void receiveWebhook(@RequestBody String responseJson) {
         try {
             webhookProcessingService.processWebhookResponse(responseJson);
-        } catch (IOException e) {
+        } catch (Exception e) {
             // Handle the exception
             e.printStackTrace();
         }

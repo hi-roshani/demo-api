@@ -1,6 +1,9 @@
 package com.wagh.demo.api.service;
 
-import com.wagh.demo.api.dto.webhook.MessageTemplate;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.wagh.demo.api.model.MessageTemplate;
 import com.wagh.demo.api.repo.MessageTemplateRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -28,34 +31,65 @@ public class WhatsappRequestService {
         this.messageTemplateRepository = messageTemplateRepository;
     }
 
-    public void sendMessage(Long templateId) {
-
+    public void sendMessage(Long templateId) throws Exception {
         MessageTemplate template = messageTemplateRepository.findById(templateId)
                 .orElseThrow(() -> new RuntimeException("Template not found"));
 
         String recipientNumber = "+919049534396";
 
-        // Build request payload with required parameters
-        String payload = String.format(
-                "{ \"messaging_product\": \"whatsapp\", \"to\": \"%s\", \"type\": \"text\", \"text\": { \"body\": \"%s\" } }",
-                recipientNumber,
-                template.getTemplateBody()
-        );
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectNode rootNode = objectMapper.createObjectNode();
+        rootNode.put("messaging_product", "whatsapp");
+        rootNode.put("to", recipientNumber);
+        rootNode.put("type", "interactive");
 
-        // Create headers with authorization token
+        ObjectNode interactiveNode = objectMapper.createObjectNode();
+        interactiveNode.put("type", "button");
+
+        ObjectNode bodyNode = objectMapper.createObjectNode();
+        bodyNode.put("text", template.getTemplateBody());
+        interactiveNode.set("body", bodyNode);
+
+        ObjectNode actionNode = objectMapper.createObjectNode();
+        ArrayNode buttonsArray = objectMapper.createArrayNode();
+        if (template.getButton1Id() != null && template.getButton1() != null) {
+            buttonsArray.add(createButtonNode(template.getButton1Id(), template.getButton1()));
+        }
+        if (template.getButton2Id() != null && template.getButton2() != null) {
+            buttonsArray.add(createButtonNode(template.getButton2Id(), template.getButton2()));
+        }
+        if (template.getButton3Id() != null && template.getButton3() != null) {
+            buttonsArray.add(createButtonNode(template.getButton3Id(), template.getButton3()));
+        }
+        actionNode.set("buttons", buttonsArray);
+        interactiveNode.set("action", actionNode);
+        rootNode.set("interactive", interactiveNode);
+
+        String payload = objectMapper.writeValueAsString(rootNode);
+
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + apiToken);
         headers.set("Content-Type", "application/json");
 
-        // Create HttpEntity with payload and headers
         HttpEntity<String> requestEntity = new HttpEntity<>(payload, headers);
 
-        // Send POST request to WhatsApp API
         ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class);
 
         if (response.getStatusCode() != HttpStatus.OK) {
             throw new RuntimeException("Failed to send message: " + response.getBody());
         }
     }
+
+    private ObjectNode createButtonNode(String id, String title) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectNode buttonNode = objectMapper.createObjectNode();
+        buttonNode.put("type", "reply");
+        ObjectNode replyNode = objectMapper.createObjectNode();
+        replyNode.put("id", id);
+        replyNode.put("title", title);
+        buttonNode.set("reply", replyNode);
+        return buttonNode;
+    }
+
 
 }

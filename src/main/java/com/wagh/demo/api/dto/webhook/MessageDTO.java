@@ -10,6 +10,7 @@ public class MessageDTO {
     private String timestamp;
     private TextDTO text;
     private String type;
-    private InteractiveMessageDTO interactiveMessage;
+    private InteractiveMessageDTO interactive;
+    private ContextDTO context;
 
 }
