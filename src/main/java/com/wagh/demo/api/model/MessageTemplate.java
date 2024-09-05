@@ -14,7 +14,7 @@ public class MessageTemplate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "template_id")
-    private Long templateId;
+    private String templateId;
     @Column(name = "template_name")
     private String templateName;
     @Column(name = "template_type")

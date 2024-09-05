@@ -2,9 +2,12 @@ package com.wagh.demo.api.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wagh.demo.api.dto.webhook.*;
+import com.wagh.demo.api.model.MessageTemplate;
+import com.wagh.demo.api.repo.MessageTemplateRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -12,18 +15,18 @@ public class WebhookProcessingService {
 
     private final WhatsappRequestService whatsappRequestService;
     private final ObjectMapper objectMapper;
+    private final MessageTemplateRepository messageTemplateRepository;
 
-
-    public WebhookProcessingService(WhatsappRequestService whatsappRequestService, ObjectMapper objectMapper) {
+    public WebhookProcessingService(WhatsappRequestService whatsappRequestService, ObjectMapper objectMapper, MessageTemplateRepository messageTemplateRepository) {
         this.whatsappRequestService = whatsappRequestService;
         this.objectMapper = objectMapper;
+        this.messageTemplateRepository = messageTemplateRepository;
     }
 
 
     public void processWebhookResponse(String responseJson) throws Exception {
         log.info("Received Webhook Response: {}", responseJson);
 
-        ObjectMapper objectMapper = new ObjectMapper();
         WebhookResponseDTO webhookResponseDTO = objectMapper.readValue(responseJson, WebhookResponseDTO.class);
 
         log.info("Webhook response received: {}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(webhookResponseDTO));
@@ -77,24 +80,44 @@ public class WebhookProcessingService {
                 // Handle list reply
             } else if (interactiveMessageDTO.getType().equals("button_reply")) {
                 log.info("Button reply received");
-                // Handle button reply
+                handleButtonReply(interactiveMessageDTO);
             }
         }
     }
 
+    private void handleButtonReply(InteractiveMessageDTO interactiveMessageDTO) throws Exception {
+        String buttonId = interactiveMessageDTO.getButtonReply().getId();
+        log.info("Button ID received: {}", buttonId);
+
+        // Find the template ID corresponding to the button ID
+        Optional<MessageTemplate> optionalTemplateId = messageTemplateRepository.findTemplateByTemplateId(buttonId);
+
+        log.info("Query result for Button ID '{}': {}", buttonId, optionalTemplateId);
+
+        if (optionalTemplateId.isPresent()) {
+            String templateId = optionalTemplateId.get().getTemplateId();
+            log.info("Found Template ID: {}", templateId);
+            // Send message using the found template ID
+            whatsappRequestService.sendMessage(templateId);
+        } else {
+            log.warn("No template found for Button ID: {}", buttonId);
+        }
+    }
+
+
     private void sendMessageBasedOnUserInfo(EntryDTO entryDTO) throws Exception {
         // Extract relevant user information from entryDTO
         // Determine which template to use, for example based on user info or message content
-        Long templateId = determineTemplateId(entryDTO);
+        String templateId = determineTemplateId(entryDTO);
 
         log.info("Determined Template ID: {}", templateId);
         whatsappRequestService.sendMessage(templateId);
     }
 
-    private Long determineTemplateId(EntryDTO entryDTO) {
+    private String determineTemplateId(EntryDTO entryDTO) {
         // Implement logic to determine the appropriate template ID
         // This can be based on message content, user information, etc.
         // For simplicity, returning a hardcoded value
-        return 1L; // Replace with actual logic
+        return "1"; // Replace with actual logic
     }
 }

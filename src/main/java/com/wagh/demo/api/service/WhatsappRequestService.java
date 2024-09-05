@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.wagh.demo.api.model.MessageTemplate;
 import com.wagh.demo.api.repo.MessageTemplateRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+@Slf4j
 @Service
 public class WhatsappRequestService {
 
@@ -31,8 +33,13 @@ public class WhatsappRequestService {
         this.messageTemplateRepository = messageTemplateRepository;
     }
 
-    public void sendMessage(Long templateId) throws Exception {
-        MessageTemplate template = messageTemplateRepository.findById(templateId)
+    public void sendMessage(String templateId) throws Exception {
+        if (templateId == null || templateId.isEmpty()) {
+            log.error("Invalid template ID: {}", templateId);
+            throw new IllegalArgumentException("Template ID must not be null or empty");
+        }
+
+        MessageTemplate template = messageTemplateRepository.findByTemplateId(templateId)
                 .orElseThrow(() -> new RuntimeException("Template not found"));
 
         String recipientNumber = "+919049534396";

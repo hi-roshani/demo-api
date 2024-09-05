@@ -1,10 +1,14 @@
 package com.wagh.demo.api.dto.webhook;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter     @Setter
 public class InteractiveMessageDTO {
+    @JsonProperty("type")
     private String type;
-    private ButtonReplyDTO button_reply;
+
+    @JsonProperty("button_reply")
+    private ButtonReplyDTO buttonReply;
 }
