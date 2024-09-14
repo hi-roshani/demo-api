@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class Action {
     private String button;
-    private List<Section> sections;
+    private List<SectionDTO> sections;
 }

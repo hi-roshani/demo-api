@@ -37,6 +37,13 @@ whatsapp:
   verification_token: kartikaryan
   api:
     url: https://graph.facebook.com/v20.0/317367008136487/messages
-    token: EAAXdPN7JNQgBO80D15bpsa0PldIzJg9BwPZCHUyA00hFZCQGoVhEkPTZBXDS8z8UU0ql2RHzY9LZCZBPLZBjFK4CXQi75vfjG1KgqMs202ZBNb3cltZBEgoWo14ZBEAlZAgiCFjrur2n2mtZBfi5QJdr0GbZA3UR8GruilbxFzOfbxiZBCyooLcouIUJ3pFNTNQSNvlzJBVpa5A9pcGxIyGRvcK1rFO4D7KUsVUZBSUZAgZD
+    token: EAAXdPN7JNQgBOZCdwrjsgxE93ezeZACfHRZBeUW41r8HExY6Bp9zfESrwIPABPSSi9lOZBrgu280dPZCv2OJ7T5N8d0rgu4tZAUuGSKPIarO5H3krBV0rJTZAnSOxLcleGnTC8N6LWCpmJImMVoHqDkXFgpMJGs8i9VlIVpil5Co6VtcrkXxu2KCOZCOZCaOLWQTUJsJlOirxYU6xfvnbIvWdAjo5wkgN5yeHxA40EL7l5o4ZD
 server:
   port: 9001
+  logging:
+    level:
+      org:
+        hibernate: DEBUG
+        springframework:
+          orm:
+            jpa: DEBUG

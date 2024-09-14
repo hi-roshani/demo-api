@@ -77,11 +77,34 @@ public class WebhookProcessingService {
             InteractiveMessageDTO interactiveMessageDTO = entryDTO.getChanges().get(0).getValue().getMessages().get(0).getInteractive();
             if (interactiveMessageDTO.getType().equals("list_reply")) {
                 log.info("List reply received");
-                // Handle list reply
+                handleListReply(interactiveMessageDTO);
             } else if (interactiveMessageDTO.getType().equals("button_reply")) {
                 log.info("Button reply received");
                 handleButtonReply(interactiveMessageDTO);
             }
+        }
+    }
+
+    private void handleListReply(InteractiveMessageDTO interactiveMessageDTO) throws Exception {
+        // Extract list reply data
+        String listId = interactiveMessageDTO.getListReply().getId();
+        String listTitle = interactiveMessageDTO.getListReply().getTitle();
+
+        log.info("List ID received: {}", listId);
+        log.info("List Title received: {}", listTitle);
+
+        // Based on the list ID or title, determine what action to take
+        // For example, you might look up a template or trigger a specific response
+        Optional<MessageTemplate> optionalTemplate = messageTemplateRepository.findByTemplateName(listId);
+
+        if (optionalTemplate.isPresent()) {
+            String templateName = optionalTemplate.get().getTemplateName();
+            log.info("Found Template Name: {}", templateName);
+            // Send message using the found template ID
+            whatsappRequestService.sendMessage(templateName);
+        } else {
+            log.warn("No template found for List ID: {}", listId);
+            // Optionally handle the case where no template is found
         }
     }
 
@@ -90,15 +113,15 @@ public class WebhookProcessingService {
         log.info("Button ID received: {}", buttonId);
 
         // Find the template ID corresponding to the button ID
-        Optional<MessageTemplate> optionalTemplateId = messageTemplateRepository.findTemplateByTemplateId(buttonId);
+        Optional<MessageTemplate> optionalTemplateId = messageTemplateRepository.findTemplateByButtonId(buttonId);
 
         log.info("Query result for Button ID '{}': {}", buttonId, optionalTemplateId);
 
         if (optionalTemplateId.isPresent()) {
-            String templateId = optionalTemplateId.get().getTemplateId();
-            log.info("Found Template ID: {}", templateId);
+            String templateName = optionalTemplateId.get().getTemplateName();
+            log.info("Found Template Name: {}", templateName);
             // Send message using the found template ID
-            whatsappRequestService.sendMessage(templateId);
+            whatsappRequestService.sendMessage(templateName);
         } else {
             log.warn("No template found for Button ID: {}", buttonId);
         }
@@ -108,16 +131,16 @@ public class WebhookProcessingService {
     private void sendMessageBasedOnUserInfo(EntryDTO entryDTO) throws Exception {
         // Extract relevant user information from entryDTO
         // Determine which template to use, for example based on user info or message content
-        String templateId = determineTemplateId(entryDTO);
+        String templateName = determineTemplateName(entryDTO);
 
-        log.info("Determined Template ID: {}", templateId);
-        whatsappRequestService.sendMessage(templateId);
+        log.info("Determined Template ID: {}", templateName);
+        whatsappRequestService.sendMessage(templateName);
     }
 
-    private String determineTemplateId(EntryDTO entryDTO) {
+    private String determineTemplateName(EntryDTO entryDTO) {
         // Implement logic to determine the appropriate template ID
         // This can be based on message content, user information, etc.
         // For simplicity, returning a hardcoded value
-        return "1"; // Replace with actual logic
+        return "Welcome Template"; // Replace with actual logic
     }
 }

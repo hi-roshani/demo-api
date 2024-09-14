@@ -1,9 +1,10 @@
 package com.wagh.demo.api.dto;
 
-import lombok.Data;
+import lombok.*;
 
+@AllArgsConstructor     @NoArgsConstructor
 @Data
-public class Row {
+public class RowDTO {
     private String id;
     private String title;
     private String description;

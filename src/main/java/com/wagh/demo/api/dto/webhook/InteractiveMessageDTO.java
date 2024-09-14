@@ -11,4 +11,7 @@ public class InteractiveMessageDTO {
 
     @JsonProperty("button_reply")
     private ButtonReplyDTO buttonReply;
+
+    @JsonProperty("list_reply")  // Add this line
+    private ListReplyDTO listReply;
 }
